@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "NewsViewController.h"
+#import "VideoViewController.h"
+#import "RecommendViewController.h"
+#import "AccountViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -16,7 +20,22 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    NewsViewController * newsViewController = [[NewsViewController alloc]init];
+    VideoViewController * videoViewController = [[VideoViewController alloc]init];
+    RecommendViewController * recommendViewController = [[RecommendViewController alloc]init];
+    AccountViewController * accountViewController = [[AccountViewController alloc]init];
+    
+    UITabBarController * tabBarController = [[UITabBarController alloc]init];
+    [tabBarController setViewControllers:@[newsViewController,videoViewController,
+                                           recommendViewController,accountViewController]];
+    tabBarController.delegate = self;
+    UINavigationController * navigationController = [[UINavigationController alloc]initWithRootViewController:tabBarController];
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 
