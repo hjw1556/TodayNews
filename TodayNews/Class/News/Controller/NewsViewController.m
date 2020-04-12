@@ -8,10 +8,14 @@
 
 #import "NewsViewController.h"
 #import "NewsTableViewCell.h"
+#import "NewsDetailViewController.h"
+#import "NewsDeleteCellView.h"
 
-@interface NewsViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface NewsViewController ()<UITableViewDelegate,UITableViewDataSource,NewTableViewCellDelegate>
 
 @property (nonatomic, strong) UITableView * newsTableView;
+
+@property (nonatomic, strong) NSMutableArray * dataArray;
 
 @end
 
@@ -20,10 +24,14 @@
 - (instancetype)init{
     self = [super  init];
     if(self){
+        _dataArray = [NSMutableArray array];
+        for (int i = 0; i < 20; i ++) {
+            [_dataArray addObject:@(i)];
+        }
+    
         self.tabBarItem.title = @"新闻";
         self.tabBarItem.image = [UIImage imageNamed:@"news"];
         self.tabBarItem.selectedImage = [UIImage imageNamed:@"news_selected"];
-        //TODO后续需要添加icon
     }
     return self;
 }
@@ -50,7 +58,7 @@
 
 #pragma -mark UITableView代理实现方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return _dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -58,6 +66,8 @@
     NewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if(!cell){
         cell = [[NewTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell.delegate = self;
+        
     }
     [cell layoutTableViewCell];
 
@@ -67,5 +77,25 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NewsDetailViewController * newsDetailVC = [[NewsDetailViewController alloc]init];
+    newsDetailVC.title = [NSString stringWithFormat:@"%@",@(indexPath.row)];
+    [self.navigationController pushViewController:newsDetailVC animated:YES];
+
+}
+
+- (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton{
+    NewsDeleteCellView * deleteView = [[NewsDeleteCellView alloc]initWithFrame:self.view.bounds];
+    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
+    __weak typeof(self) weakSelf = self;
+    [deleteView showDeleteViewFromPoint:rect.origin clickBlock:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        [strongSelf.dataArray removeLastObject];
+        [strongSelf.newsTableView deleteRowsAtIndexPaths:@[[strongSelf.newsTableView indexPathForCell:tableViewCell]] withRowAnimation: UITableViewRowAnimationAutomatic];
+    }];
+    
+}
+
 
 @end

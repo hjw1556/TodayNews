@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C595452024415A3000369F01 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C595451F24415A3000369F01 /* NewsDetailViewController.m */; };
+		C59545232442F4AC00369F01 /* NewsDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = C59545222442F4AC00369F01 /* NewsDeleteCellView.m */; };
 		C5A51EE024397AB40059B54E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A51EDF24397AB40059B54E /* AppDelegate.m */; };
 		C5A51EE624397AB40059B54E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5A51EE424397AB40059B54E /* Main.storyboard */; };
 		C5A51EE824397AB60059B54E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A51EE724397AB60059B54E /* Assets.xcassets */; };
@@ -40,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C595451E24415A3000369F01 /* NewsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
+		C595451F24415A3000369F01 /* NewsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
+		C59545212442F4AC00369F01 /* NewsDeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDeleteCellView.h; sourceTree = "<group>"; };
+		C59545222442F4AC00369F01 /* NewsDeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDeleteCellView.m; sourceTree = "<group>"; };
 		C5A51EDB24397AB40059B54E /* TodayNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A51EDE24397AB40059B54E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C5A51EDF24397AB40059B54E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -175,6 +181,8 @@
 			children = (
 				C5A51F182439C3820059B54E /* NewsViewController.h */,
 				C5A51F192439C3820059B54E /* NewsViewController.m */,
+				C595451E24415A3000369F01 /* NewsDetailViewController.h */,
+				C595451F24415A3000369F01 /* NewsDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,6 +249,8 @@
 			children = (
 				C5A51F38243A1E5E0059B54E /* NewsTableViewCell.h */,
 				C5A51F39243A1E5E0059B54E /* NewsTableViewCell.m */,
+				C59545212442F4AC00369F01 /* NewsDeleteCellView.h */,
+				C59545222442F4AC00369F01 /* NewsDeleteCellView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -377,11 +387,13 @@
 			files = (
 				C5A51EEE24397AB60059B54E /* main.m in Sources */,
 				C5A51F1A2439C3820059B54E /* NewsViewController.m in Sources */,
+				C59545232442F4AC00369F01 /* NewsDeleteCellView.m in Sources */,
 				C5A51F3A243A1E5E0059B54E /* NewsTableViewCell.m in Sources */,
 				C5A51F36243A02C10059B54E /* AccountViewController.m in Sources */,
 				C5A51F142439C3360059B54E /* VideoViewController.m in Sources */,
 				C5A51EE024397AB40059B54E /* AppDelegate.m in Sources */,
 				C5A51F1F2439C9460059B54E /* RootViewController.m in Sources */,
+				C595452024415A3000369F01 /* NewsDetailViewController.m in Sources */,
 				C5A51F252439FC710059B54E /* RecommendViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -541,7 +553,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

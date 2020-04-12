@@ -10,7 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol NewTableViewCellDelegate <NSObject>
+
+- (void)tableViewCell: (UITableViewCell * )tableViewCell  clickDeleteButton:(UIButton *)deleteButton;
+
+@end
+
 @interface NewTableViewCell : UITableViewCell
+
+@property (nonatomic, weak) id<NewTableViewCellDelegate> delegate;
 
 - (void)layoutTableViewCell;
 
